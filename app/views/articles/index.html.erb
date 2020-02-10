@@ -3,26 +3,28 @@
 </body>
 <h1>Listing Articles</h1>
 <%= link_to 'New article', new_article_path %>
-<table>
-  <tr>
-    <th>Pic</th>
-    <th>Title</th>
-    <th>Text</th>
-    <th colspan="3"></th>
-  </tr>
- 
-  <% @articles.each do |article| %>
+<div class="container">
+  <table>
     <tr>
-      <td><% if article.pic.attached? %>
-      <%=image_tag article.pic,  class: "my-pic"%>
-        <% end %></td>
-      <td><%= article.title %></td>
-      <td><%= article.text %></td>
-      <td><%= link_to 'Show', article_path(article) %></td>
-      <td><%= link_to 'Edit', edit_article_path(article) %></td>
-      <td><%= link_to 'Destroy', article_path(article),
-              method: :delete,
-              data: { confirm: 'Are you sure?' } %></td>
+      <th>Pic</th>
+      <th>Title</th>
+      <th>Text</th>
+      <th colspan="3"></th>
     </tr>
-  <% end %>
-</table>
+  
+    <% @articles.each do |article| %>
+      <tr>
+        <td><% if article.pic.attached? %>
+        <a href="<%= article_path(article) %>"><%=image_tag article.pic,  class: "my-pic"%></a>
+          <% end %></td>
+        <td><%= article.title %></td>
+        <td><%= article.text %></td>
+        <td><%= link_to 'Show', article_path(article) %></td>
+        <td><%= link_to 'Edit', edit_article_path(article) %></td>
+        <td><%= link_to 'Destroy', article_path(article),
+                method: :delete,
+                data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </table>
+</div>

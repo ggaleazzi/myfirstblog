@@ -15,10 +15,16 @@
     </div>
   <% end %>
 
+
+  <% if @article.pic.attached? %>
+    <%= form.file_field :pic %>
+    <%= @article.pic.filename %>
+  <% else %>
   <div>
-  <label for="addpicture">Image</label>
-  <%= form.file_field :pic, required: true %>
+    <label for="addpicture">Image</label>
+    <%= form.file_field :pic, required: true %>
   </div>
+  <% end %>
 
   <p>
     <%= form.label :title %><br>
