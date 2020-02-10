@@ -1,7 +1,8 @@
 <%= form_with model: @article, local: true do |form| %>
  
+
   <% if @article.errors.any? %>
-    <div id="error_explanation">
+    <div id="error_explanation">   
       <h2>
         <%= pluralize(@article.errors.count, "error") %> prohibited
         this article from being saved:
@@ -13,7 +14,12 @@
       </ul>
     </div>
   <% end %>
- 
+
+  <div>
+  <label for="addpicture">Image</label>
+  <%= form.file_field :pic, required: true %>
+  </div>
+
   <p>
     <%= form.label :title %><br>
     <%= form.text_field :title %>

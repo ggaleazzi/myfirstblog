@@ -1,3 +1,10 @@
+<%= image_tag("logo.png") %>
+<p>
+<td><% if @article.pic.attached? %>
+      <%=image_tag @article.pic,  class: "my-pic"%>
+    <% end %></td>
+</p>
+
 <p>
   <strong>Title:</strong>
   <%= @article.title %>
