@@ -1,0 +1,5 @@
+<h4><%= article.title %></h4>
+<% if article.pic.attached? %>
+    <div><%= link_to(image_tag(article.pic, class: "my-pic"), article) %></div>
+<% end %>
+<p> <%= article.text %></p>

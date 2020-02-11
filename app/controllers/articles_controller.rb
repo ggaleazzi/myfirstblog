@@ -10,6 +10,10 @@ class ArticlesController < ApplicationController
     end
    
     def new
+      if (current_user.nil? || current_user.email != "bobbuilder@hotmail.com")
+        redirect_to root_path
+        flash[:alert] = "Forbiden!"
+      end  
       @article = Article.new
     end
    
