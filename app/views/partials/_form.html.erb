@@ -1,5 +1,5 @@
 <%= form_with model: @article, local: true do |form| %>
- 
+ <div class="container">
 
   <% if @article.errors.any? %>
     <div id="error_explanation">   
@@ -40,5 +40,5 @@
   <p>
     <%= form.submit %>
   </p>
- 
+ </div>
 <% end %>

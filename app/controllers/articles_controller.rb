@@ -24,7 +24,9 @@ class ArticlesController < ApplicationController
       @article = Article.new(article_params)
    
       if @article.save
-        ArticleMailer.new_article(@article.title).deliver_now
+        Follower.all.each do |follower|
+          ArticleMailer.new_article(@article.title,follower.email).deliver_now
+        end
         redirect_to @article
       else
         render 'new'

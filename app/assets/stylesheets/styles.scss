@@ -1,5 +1,5 @@
 body {
-    background-color:darken($color: rgb(71, 2, 71), $amount: 0);
+    background-color:darken($color: rgb(39, 30, 58), $amount: 0);
 }
 
 h1 {
@@ -49,4 +49,7 @@ hr {
     display: block;
     border-style: inset;
     border-width: 2px;
+}
+.follow {
+    background-color: rgb(24, 105, 24);
 }
