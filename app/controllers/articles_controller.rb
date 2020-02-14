@@ -4,6 +4,7 @@ class ArticlesController < ApplicationController
 
     def index
       @articles = Article.all
+      flash[:notice] = "Subscribed!"
     end
    
     def show
@@ -11,8 +12,7 @@ class ArticlesController < ApplicationController
    
     def new
       if (current_user.nil? || current_user.email != "bobbuilder@hotmail.com")
-        redirect_to root_path
-        flash[:alert] = "Forbiden!"
+        redirect_to @article 
       end   
       @article = Article.new
     end
@@ -21,7 +21,7 @@ class ArticlesController < ApplicationController
     end
    
     def create
-      @article = Article.new(article_params)
+      @article = Article.new(article_params) 
    
       if @article.save
         Follower.all.each do |follower|
